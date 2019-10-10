@@ -1,0 +1,11 @@
+{
+	"objects":
+	[
+		{
+			"type": "obj",
+			"name": "Desert",
+			"filename": "Church_interior_OBJ.obj",
+			"texture": "Church_interior_OBJ.mtl"
+		}
+	]
+}
