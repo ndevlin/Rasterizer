@@ -7,7 +7,7 @@ INCLUDEPATH += $$PWD
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = cis277_hw01
+TARGET = Rasterize
 TEMPLATE = app
 
 

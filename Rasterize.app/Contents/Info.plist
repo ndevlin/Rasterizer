@@ -13,7 +13,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleExecutable</key>
-	<string>cis277_hw01</string>
+	<string>Rasterize</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.yourcompany.cis277-hw01</string>
 	<key>NOTE</key>
