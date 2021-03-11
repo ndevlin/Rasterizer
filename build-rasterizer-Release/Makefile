@@ -13,9 +13,9 @@ MAKEFILE      = Makefile
 CC            = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang
 CXX           = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
 DEFINES       = -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
-CFLAGS        = -pipe -O2 $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -mmacosx-version-min=10.10 -Wall -W -fPIC $(DEFINES)
-CXXFLAGS      = -pipe -stdlib=libc++ -O2 -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -mmacosx-version-min=10.10 -Wall -W -fPIC $(DEFINES)
-INCPATH       = -I../rasterizer_3d -I. -I../rasterizer_3d/include -I../rasterizer_3d -I/Users/Nathan/Qt5.9.1/5.9.1/clang_64/lib/QtWidgets.framework/Headers -I/Users/Nathan/Qt5.9.1/5.9.1/clang_64/lib/QtGui.framework/Headers -I/Users/Nathan/Qt5.9.1/5.9.1/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/System/Library/Frameworks/AGL.framework/Headers -I. -I/Users/Nathan/Qt5.9.1/5.9.1/clang_64/mkspecs/macx-clang -F/Users/Nathan/Qt5.9.1/5.9.1/clang_64/lib
+CFLAGS        = -pipe -O2 $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -mmacosx-version-min=10.10 -Wall -W -fPIC $(DEFINES)
+CXXFLAGS      = -pipe -stdlib=libc++ -O2 -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -mmacosx-version-min=10.10 -Wall -W -fPIC $(DEFINES)
+INCPATH       = -I../rasterizer_3d -I. -I../rasterizer_3d/include -I../rasterizer_3d -I/Users/Nathan/Qt5.9.1/5.9.1/clang_64/lib/QtWidgets.framework/Headers -I/Users/Nathan/Qt5.9.1/5.9.1/clang_64/lib/QtGui.framework/Headers -I/Users/Nathan/Qt5.9.1/5.9.1/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/System/Library/Frameworks/AGL.framework/Headers -I. -I/Users/Nathan/Qt5.9.1/5.9.1/clang_64/mkspecs/macx-clang -F/Users/Nathan/Qt5.9.1/5.9.1/clang_64/lib
 QMAKE         = /Users/Nathan/Qt5.9.1/5.9.1/clang_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -37,7 +37,7 @@ COMPRESS      = gzip -9f
 DISTNAME      = Rasterize1.0.0
 DISTDIR = /Users/Nathan/Desktop/GitHub/Rasterizer/Rasterizer/build-rasterizer-Release/.tmp/Rasterize1.0.0
 LINK          = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
-LFLAGS        = -stdlib=libc++ -headerpad_max_install_names $(EXPORT_ARCH_ARGS) -Wl,-syslibroot,/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -mmacosx-version-min=10.10 -Wl,-rpath,@executable_path/Frameworks -Wl,-rpath,/Users/Nathan/Qt5.9.1/5.9.1/clang_64/lib
+LFLAGS        = -stdlib=libc++ -headerpad_max_install_names $(EXPORT_ARCH_ARGS) -Wl,-syslibroot,/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -mmacosx-version-min=10.10 -Wl,-rpath,@executable_path/Frameworks -Wl,-rpath,/Users/Nathan/Qt5.9.1/5.9.1/clang_64/lib
 LIBS          = $(SUBLIBS) -F/Users/Nathan/Qt5.9.1/5.9.1/clang_64/lib -framework QtWidgets -framework QtGui -framework QtCore -framework DiskArbitration -framework IOKit -framework OpenGL -framework AGL 
 AR            = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar cq
 RANLIB        = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib -s
@@ -638,7 +638,7 @@ compiler_moc_predefs_make_all: moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) moc_predefs.h
 moc_predefs.h: /Users/Nathan/Qt5.9.1/5.9.1/clang_64/mkspecs/features/data/dummy.cpp
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -pipe -stdlib=libc++ -O2 -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -mmacosx-version-min=10.10 -Wall -W -dM -E -o moc_predefs.h /Users/Nathan/Qt5.9.1/5.9.1/clang_64/mkspecs/features/data/dummy.cpp
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -pipe -stdlib=libc++ -O2 -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -mmacosx-version-min=10.10 -Wall -W -dM -E -o moc_predefs.h /Users/Nathan/Qt5.9.1/5.9.1/clang_64/mkspecs/features/data/dummy.cpp
 
 compiler_moc_header_make_all: moc_mainwindow.cpp
 compiler_moc_header_clean:
@@ -741,7 +741,7 @@ moc_mainwindow.cpp: /Users/Nathan/Qt5.9.1/5.9.1/clang_64/lib/QtWidgets.framework
 		../rasterizer_3d/mainwindow.h \
 		moc_predefs.h \
 		/Users/Nathan/Qt5.9.1/5.9.1/clang_64/bin/moc
-	/Users/Nathan/Qt5.9.1/5.9.1/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/Nathan/Qt5.9.1/5.9.1/clang_64/mkspecs/macx-clang -I/Users/Nathan/Desktop/GitHub/Rasterizer/Rasterizer/rasterizer_3d -I/Users/Nathan/Desktop/GitHub/Rasterizer/Rasterizer/rasterizer_3d/include -I/Users/Nathan/Desktop/GitHub/Rasterizer/Rasterizer/rasterizer_3d -I/Users/Nathan/Qt5.9.1/5.9.1/clang_64/lib/QtWidgets.framework/Headers -I/Users/Nathan/Qt5.9.1/5.9.1/clang_64/lib/QtGui.framework/Headers -I/Users/Nathan/Qt5.9.1/5.9.1/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.1.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk/usr/include -F/Users/Nathan/Qt5.9.1/5.9.1/clang_64/lib ../rasterizer_3d/mainwindow.h -o moc_mainwindow.cpp
+	/Users/Nathan/Qt5.9.1/5.9.1/clang_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/Users/Nathan/Qt5.9.1/5.9.1/clang_64/mkspecs/macx-clang -I/Users/Nathan/Desktop/GitHub/Rasterizer/Rasterizer/rasterizer_3d -I/Users/Nathan/Desktop/GitHub/Rasterizer/Rasterizer/rasterizer_3d/include -I/Users/Nathan/Desktop/GitHub/Rasterizer/Rasterizer/rasterizer_3d -I/Users/Nathan/Qt5.9.1/5.9.1/clang_64/lib/QtWidgets.framework/Headers -I/Users/Nathan/Qt5.9.1/5.9.1/clang_64/lib/QtGui.framework/Headers -I/Users/Nathan/Qt5.9.1/5.9.1/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/10.0.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include -F/Users/Nathan/Qt5.9.1/5.9.1/clang_64/lib ../rasterizer_3d/mainwindow.h -o moc_mainwindow.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
