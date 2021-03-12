@@ -8,7 +8,7 @@
 Camera::Camera() : forward(vec4(0.f, 0.f, -1.f, 0.f)),
     right(vec4(1.f, 0.f, 0.f, 0.f)), up(vec4(0.f, 1.f, 0.f, 0.f)),
     position(vec4(0.f, 0.f, 10.f, 1.f)), fov(45.f),
-    nearClip(0.01f), farClip(100.f), aspRatio(1.f)
+    nearClip(0.001f), farClip(100.f), aspRatio(1.f)
 {}
 
 

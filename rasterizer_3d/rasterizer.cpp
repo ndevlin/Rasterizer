@@ -30,9 +30,13 @@ QImage Rasterizer::RenderScene()
     // Set scene to be in 3D or in 2D
     bool threeD = true;
 
+    // Use a fish eye or a normal pinhole lens
+    bool fishEye = false;
+    // Fractional focal length if a fish eye lens is used
+    double focalLength = 0.3;
+
 
     bool paint = false;
-
 
     // Render 2D scene
     if(threeD == false)
@@ -193,20 +197,48 @@ QImage Rasterizer::RenderScene()
              {
                  vec4 pos = v.m_pos;
 
-                 // Multiply verts by the matrices
-                 pos = compositionMat * pos;
+                 if(fishEye == false)
+                 {
+                     // Normal Pinhole camera
 
-                 // Divide by W
-                 pos /= pos[3];
+                     // Multiply verts by the matrices
+                     pos = compositionMat * pos;
 
-                 // Convert to Pixel Space
-                 pos[0] = (pos[0] + 1.f) * 256;
-                 pos[1] = (1 - pos[1]) * 256;
+                     // Divide by W
+                     pos /= pos[3];
+
+                     // Convert to Pixel Space
+                     pos[0] = (pos[0] + 1.f) * 256;
+                     pos[1] = (1 - pos[1]) * 256;
+                 }
+                 else
+                 {
+                     // Fish Eye lens (Equidistant F Theta camera)
+
+                     vec4 camSpace = viewMat * v.m_pos;
+
+                     camSpace = normalize(camSpace);
+
+                     double phi = atan2(camSpace.y, camSpace.x);
+                     double length = std::sqrt(camSpace.x * camSpace.x + camSpace.y * camSpace.y);
+                     double theta = asin(length);
+
+                     //Equidistant projection
+                     double r = focalLength * theta;
+
+                     double x = -r * cos(phi);
+                     double y = -r * sin(phi);
+
+                     // Convert to pixel space
+                     x += 0.5;
+                     y += 0.5;
+                     pos[0] = x * 512.0;
+                     pos[1] = y * 512.0;
+                 }
 
                  // Set the Vertex to the newly calculated position
                  v.m_pos = pos;
              }
-
 
             for(Triangle t : pCopy.m_tris)
             {
